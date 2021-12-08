@@ -1,0 +1,110 @@
+﻿#include "lib.h"
+
+struct Quick {
+private:
+
+    // Функция находит расстояние от прямой p1p2 до точки p
+    double lineDist(const Pair& p1, const Pair& p2, const Pair& p) {
+
+        return fabs(LineL(p1, p2, p));
+    }
+
+    // Функция поиска точек искомой оболочки
+    void quickHull(const vector<Pair>& point, const Pair& p1, const Pair& p2, const int& side) {
+
+        // текущий индикатор
+        int currentI = -1;
+        // максимальное расстояние
+        double maxDist = 0;
+        {
+        // Расстояние от прямой p1p2 до точки point[i]
+        double dist = 0;
+
+            // Найдем точку на максимальном расстояни от прямой p1p2, находящуюся на стороне side
+            for (int i = 0; i < point.size(); i++) {
+
+                // Расстояние от прямой p1p2 до точки point[i]
+                dist = lineDist(p1, p2, point[i]);
+
+                if (detSide(p1, p2, point[i]) == side && dist > maxDist) {
+
+                    currentI = i;
+                    maxDist = dist;
+                }
+            }
+        }
+
+        // Если не одной точки не найдено, добавляем p1 и p2 в оболочку hull
+        if (currentI == -1) {
+            //cout << p1.first << " " << p1.second << endl;
+            //cout << p2.first << " " << p2.second << endl;
+
+            hull.insert(p1);
+            hull.insert(p2);
+
+            return;
+        }
+
+        // Рекурсия двух частей, разделенных по point[currentI]
+
+        quickHull(point, point[currentI], p1, -detSide(point[currentI], p1, p2));
+
+        quickHull(point, point[currentI], p2, -detSide(point[currentI], p2, p1));
+
+        //cout << "-------------------\n";
+    }
+
+    // Функция вычисления точек оболочки
+    void calcHull(const vector<Pair>& point) {
+
+        if (point.size() < 3) {
+
+            cout << "Convex hull not possible, n < 3\n";
+            return;
+        }
+
+        int min = 0, max = 0;
+
+        for (int i = 1; i < point.size(); ++i) {
+
+            //Найдем самую левую точку min и самую правую точку max
+            if (point[i].first < point[min].first)
+
+                min = i;
+
+            if (point[i].first > point[max].first)
+
+                max = i;
+
+            // Если таких несколько, выберем среди таких нижнюю и верхнюю соответственно
+            if ((fabs(point[i].first - point[min].first) < accuracy) && (point[i].second - point[min].second) < 0)
+                min = i;
+
+            if ((fabs(point[i].first - point[max].first) < accuracy) && (point[i].second - point[max].second) > 0)
+                max = i;
+        }
+
+        // Найдем точки оболочки на одной стороне прямой a[min] a[max] с помощью рекурсии
+        quickHull(point, point[min], point[max], 1);
+
+        // Найдем точки оболочки на противоположной стороне прямой a[min] a[max] с помощью рекурсии
+        quickHull(point, point[min], point[max], -1);
+    }
+
+    void exe() {
+        hull.clear();
+        std::cout << "Quick:\n";
+        vector<Pair> arr = { };
+        ReadFromFile(arr, inFileQuick);
+        calcHull(arr);
+        WriteToFile(hull, outFileQuick);
+        printHull();
+    }
+
+public:
+
+    void operator()() {
+        this->exe();
+    }
+
+};
