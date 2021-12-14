@@ -93,7 +93,7 @@ private:
 
     double get_clockwise_angle(const Pair& p, const Pair& c) {
 
-        return (-atan2(p.first + c.first, -(p.second + c.second)));
+        return atan2(p.first - c.first, (p.second - c.second));
     }
 
     bool compare_points(const Pair& a, const Pair& b, const Pair& c)
@@ -105,12 +105,12 @@ private:
     void exe() {
 
         hull.clear();
-        std::cout << "Quick:\n";
+        std::cout << "Quick:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileQuick);
         calcHull(arr);
 
-        /*
+        
         double xc = 0.0;
         double yc = 0.0;
 
@@ -124,24 +124,50 @@ private:
 
         cout << c.first << " " << c.second;
 
+        arr.clear();
+
         for (auto it : hull) {
 
-            for (auto i : hull) {
-                if (!compare_points(it, i, c))
-                    swap(it, i);
+            arr.push_back(it);
+        }
+
+        for (auto it : arr) {
+
+            for (auto i : arr) {
+              //  if (compare_points(it, i, c))
+              //      iter_swap(it, i);
             }
         }
 
+        sort(arr.begin(),
+            arr.end(),
+            [c](const Pair a, const Pair b) {
+                return atan2(a.first - c.first, a.second - c.second) < atan2(b.first - c.first, b.second - c.second);
+            });
+        
+        
+        /*
+        unordered_set<Pair, pair_hash> tc;
+
+        for (auto it : hull) {
+
+            tc.insert({ c.first - it.first, c.second - it.second });
+        }
         
 
-        cout << "The points in Convex Hull are: " << hull.size() << " " << (*hull.begin()).first;
-        for (auto it : hull)
+        cout << "\nThe points in tc are: " << tc.size();
+        */
+
+        for (auto it : arr)
         {
             cout << "\n(" << it.first << ", " << it.second << ") ";
         }
-        */
-        cout << get_clockwise_angle(*hull.begin(), *(hull.begin()));
+        
 
+        //cout << "\n"<< (*hull.begin()).first;
+        
+       // cout << get_clockwise_angle(*hull.begin(), *(hull.begin()));
+        //swap(hull.begin(), hull.end());
          WriteToFile(hull, outFileQuick);
          printHull();
     }
@@ -227,7 +253,7 @@ private:
 
     void exe() {
         hull.clear();
-        std::cout << "None effective:\n";
+        std::cout << "None effective:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileNonEff);
         calcHull(arr);
