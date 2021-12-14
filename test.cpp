@@ -3,14 +3,17 @@
 struct Quick {
 private:
 
+    // Хранит результат в неотсортированном виде, т.е. точки выпуклой оболочки
+    unordered_set<Pair, pair_hash> hull;
+
     // Функция находит расстояние от прямой p1p2 до точки p
-    double lineDist(const Pair& p1, const Pair& p2, const Pair& p) {
+    double LineDist(const Pair& p1, const Pair& p2, const Pair& p) {
 
         return fabs(LineL(p1, p2, p));
     }
 
     // Функция поиска точек искомой оболочки
-    void quickHull(const vector<Pair>& point, const Pair& p1, const Pair& p2, const int& side) {
+    void QuickHull(const vector<Pair>& point, const Pair& p1, const Pair& p2, const int& side) {
 
         // текущий индикатор
         int currentI = -1;
@@ -24,7 +27,7 @@ private:
             for (int i = 0; i < point.size(); i++) {
 
                 // Расстояние от прямой p1p2 до точки point[i]
-                dist = lineDist(p1, p2, point[i]);
+                dist = LineDist(p1, p2, point[i]);
 
                 if (detSide(p1, p2, point[i]) == side && dist > maxDist) {
 
@@ -47,15 +50,15 @@ private:
 
         // Рекурсия двух частей, разделенных по point[currentI]
 
-        quickHull(point, point[currentI], p1, -detSide(point[currentI], p1, p2));
+        QuickHull(point, point[currentI], p1, -detSide(point[currentI], p1, p2));
 
-        quickHull(point, point[currentI], p2, -detSide(point[currentI], p2, p1));
+        QuickHull(point, point[currentI], p2, -detSide(point[currentI], p2, p1));
 
         //cout << "-------------------\n";
     }
 
     // Функция вычисления точек оболочки
-    void calcHull(const vector<Pair>& point) {
+    void CalcHull(const vector<Pair>& point) {
 
         if (point.size() < 3) {
 
@@ -85,91 +88,20 @@ private:
         }
 
         // Найдем точки оболочки на одной стороне прямой a[min] a[max] с помощью рекурсии
-        quickHull(point, point[min], point[max], 1);
+        QuickHull(point, point[min], point[max], 1);
 
         // Найдем точки оболочки на противоположной стороне прямой a[min] a[max] с помощью рекурсии
-        quickHull(point, point[min], point[max], -1);
+        QuickHull(point, point[min], point[max], -1);
     }
-
-    double get_clockwise_angle(const Pair& p, const Pair& c) {
-
-        return atan2(p.first - c.first, (p.second - c.second));
-    }
-
-    bool compare_points(const Pair& a, const Pair& b, const Pair& c)
-    {
-        return (get_clockwise_angle(a, c) < get_clockwise_angle(b, c));
-    }
-
 
     void exe() {
 
-        hull.clear();
         std::cout << "Quick:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileQuick);
-        calcHull(arr);
-
-        
-        double xc = 0.0;
-        double yc = 0.0;
-
-        for (auto it : hull) {
-
-            xc += it.first;
-            yc += it.second;
-        }
-
-        Pair c = { xc / hull.size(), yc / hull.size() };
-
-        cout << c.first << " " << c.second;
-
+        CalcHull(arr);
         arr.clear();
-
-        for (auto it : hull) {
-
-            arr.push_back(it);
-        }
-
-        for (auto it : arr) {
-
-            for (auto i : arr) {
-              //  if (compare_points(it, i, c))
-              //      iter_swap(it, i);
-            }
-        }
-
-        sort(arr.begin(),
-            arr.end(),
-            [c](const Pair a, const Pair b) {
-                return atan2(a.first - c.first, a.second - c.second) < atan2(b.first - c.first, b.second - c.second);
-            });
-        
-        
-        /*
-        unordered_set<Pair, pair_hash> tc;
-
-        for (auto it : hull) {
-
-            tc.insert({ c.first - it.first, c.second - it.second });
-        }
-        
-
-        cout << "\nThe points in tc are: " << tc.size();
-        */
-
-        for (auto it : arr)
-        {
-            cout << "\n(" << it.first << ", " << it.second << ") ";
-        }
-        
-
-        //cout << "\n"<< (*hull.begin()).first;
-        
-       // cout << get_clockwise_angle(*hull.begin(), *(hull.begin()));
-        //swap(hull.begin(), hull.end());
-         WriteToFile(hull, outFileQuick);
-         printHull();
+        SortAndPrintHull(hull);
     }
 
 
@@ -186,6 +118,9 @@ public:
 
 struct NonEffective {
 private:
+
+    // Хранит результат в неотсортированном виде, т.е. точки выпуклой оболочки
+    unordered_set<Pair, pair_hash> hull;
 
     // Функция вычисления точек оболочки
     void  calcHull(vector<Pair>& point) {
@@ -252,13 +187,12 @@ private:
     }
 
     void exe() {
-        hull.clear();
+
         std::cout << "None effective:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileNonEff);
         calcHull(arr);
-        WriteToFile(hull, outFileNonEff);
-        printHull();
+        SortAndPrintHull(hull);
     }
 public:
 
