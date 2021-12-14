@@ -1,10 +1,10 @@
 ﻿#pragma once
-#include<iostream> 
+#include <iostream> 
+#include <unordered_set>
 #include <set>
 #include <fstream> 
 #include <vector>
-#include <iterator>
-
+#include <algorithm>
 using namespace std;
 
 // Пары координат (x; y) 
@@ -20,8 +20,19 @@ using namespace std;
 // Выходной файл Noneff
 #define outFileNonEff "out_NonEff.txt"
 
-// Хранит результат, т.е. выпуклую оболочку
-set<Pair> hull;
+// hash for onorderd_set
+struct pair_hash
+{
+	template <class T1, class T2>
+	std::size_t operator () (std::pair<T1, T2> const& pair) const
+	{
+		std::size_t h1 = std::hash<T1>()(pair.first);
+		std::size_t h2 = std::hash<T2>()(pair.second);
+
+		return h1 ^ h2;
+	}
+};
+
 
 double LineL(const Pair& p1, const Pair& p2, const Pair& p) {
 	return ((p.second - p1.second) * (p2.first - p1.first) -
@@ -43,46 +54,86 @@ int detSide(const Pair& p1, const Pair& p2, const Pair& p)
 	return 0;
 }
 
-	// Функия для записи координат точек из set<Pair> pr в текстовый файл
-void WriteToFile(set<Pair>& pr, const string& path) {
+// Функия для записи координат точек из unordered_set<Pair> pr в текстовый файл (будет неотсортированный вариант)
+template <typename T>
+void WriteToFile(const T& OutputPoints, const string& path) {
 
 	// Создадим ofstream для записи в файл
 	ofstream fin;
 	fin.open(path);
-	fin << pr.size();
+	fin << OutputPoints.size();
 
-	for (auto it : hull)
+	for (auto it : OutputPoints)
 		fin << "\n" << it.first << " " << it.second;
 
 	fin.close();
 }
 
 // Функия для считывания координат точек из текстого файла в vector<Pair> pr
-void ReadFromFile(vector<Pair>& pr, const string& path) {
+void ReadFromFile(vector<Pair>& InputPoints, const string& path) {
 	// Создадим ifstream для чтения файла
 	ifstream fout;
 
 	fout.open(path);
 	int n = 0;
 	fout >> n;
-	pr.resize(n + 1);
+	InputPoints.resize(n + 1);
 	// cout << n << " " << pr.size();
 	n = 0;
 	// Записываем данные в vector<Pair> pr
 	while (fout) {
-		fout >> pr[n].first >> pr[n].second;
+		fout >> InputPoints[n].first >> InputPoints[n].second;
 		++n;
 	}
 
 	fout.close();
 }
 
-// Функция для вывода результата в консоль
-void printHull() {
-	cout << "The points in Convex Hull are: " << hull.size();
+// Функция для вывода результата в консоль (будет неотсортированный вариант)
+template <typename T>
+void PrintHull(const T& hull) {
+
+	cout << "\nThe points in Convex Hull are: " << hull.size();
 
 	for (auto it : hull)
 	{
 		cout << "\n(" << it.first << ", " << it.second << ") ";
 	}
+}
+
+// Рассчет центра hull
+Pair Calc_Center(const unordered_set<Pair, pair_hash>& hull) {
+
+	double xc = 0.0;
+	double yc = 0.0;
+
+	for (auto it : hull) {
+
+		xc += it.first;
+		yc += it.second;
+	}
+
+	return { xc / hull.size(), yc / hull.size() };
+}
+
+void SortAndPrintHull(const unordered_set<Pair, pair_hash>& hull) {
+
+	// центр hull
+	Pair c = Calc_Center(hull);
+
+	// лямбда функция сравнения
+	auto cmp = [c](const Pair a, const Pair b) {
+		return atan2(a.first - c.first, a.second - c.second) < atan2(b.first - c.first, b.second - c.second);
+	};
+
+	// hull по часовой стрелке
+	set<Pair, decltype(cmp)> ordHull(cmp);
+
+	for (auto it : hull) {
+
+		ordHull.insert(it);
+	}
+
+	WriteToFile<set<Pair, decltype(cmp)>>(ordHull, outFileQuick);
+	PrintHull<set<Pair, decltype(cmp)>>(ordHull);
 }

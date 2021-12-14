@@ -3,28 +3,31 @@
 struct Quick {
 private:
 
+    // Хранит результат в неотсортированном виде, т.е. точки выпуклой оболочки
+    unordered_set<Pair, pair_hash> hull;
+
     // Функция находит расстояние от прямой p1p2 до точки p
-    double lineDist(const Pair& p1, const Pair& p2, const Pair& p) {
+    double LineDist(const Pair& p1, const Pair& p2, const Pair& p) {
 
         return fabs(LineL(p1, p2, p));
     }
 
     // Функция поиска точек искомой оболочки
-    void quickHull(const vector<Pair>& point, const Pair& p1, const Pair& p2, const int& side) {
+    void QuickHull(const vector<Pair>& point, const Pair& p1, const Pair& p2, const int& side) {
 
         // текущий индикатор
         int currentI = -1;
         // максимальное расстояние
         double maxDist = 0;
         {
-        // Расстояние от прямой p1p2 до точки point[i]
-        double dist = 0;
+            // Расстояние от прямой p1p2 до точки point[i]
+            double dist = 0;
 
             // Найдем точку на максимальном расстояни от прямой p1p2, находящуюся на стороне side
             for (int i = 0; i < point.size(); i++) {
 
                 // Расстояние от прямой p1p2 до точки point[i]
-                dist = lineDist(p1, p2, point[i]);
+                dist = LineDist(p1, p2, point[i]);
 
                 if (detSide(p1, p2, point[i]) == side && dist > maxDist) {
 
@@ -47,15 +50,15 @@ private:
 
         // Рекурсия двух частей, разделенных по point[currentI]
 
-        quickHull(point, point[currentI], p1, -detSide(point[currentI], p1, p2));
+        QuickHull(point, point[currentI], p1, -detSide(point[currentI], p1, p2));
 
-        quickHull(point, point[currentI], p2, -detSide(point[currentI], p2, p1));
+        QuickHull(point, point[currentI], p2, -detSide(point[currentI], p2, p1));
 
         //cout << "-------------------\n";
     }
 
     // Функция вычисления точек оболочки
-    void calcHull(const vector<Pair>& point) {
+    void CalcHull(const vector<Pair>& point) {
 
         if (point.size() < 3) {
 
@@ -85,21 +88,22 @@ private:
         }
 
         // Найдем точки оболочки на одной стороне прямой a[min] a[max] с помощью рекурсии
-        quickHull(point, point[min], point[max], 1);
+        QuickHull(point, point[min], point[max], 1);
 
         // Найдем точки оболочки на противоположной стороне прямой a[min] a[max] с помощью рекурсии
-        quickHull(point, point[min], point[max], -1);
+        QuickHull(point, point[min], point[max], -1);
     }
 
     void exe() {
-        hull.clear();
-        std::cout << "Quick:\n";
+
+        std::cout << "Quick:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileQuick);
-        calcHull(arr);
-        WriteToFile(hull, outFileQuick);
-        printHull();
+        CalcHull(arr);
+        arr.clear();
+        SortAndPrintHull(hull);
     }
+
 
 public:
 
