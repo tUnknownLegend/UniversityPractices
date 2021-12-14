@@ -101,7 +101,7 @@ private:
         ReadFromFile(arr, inFileQuick);
         CalcHull(arr);
         arr.clear();
-        SortAndPrintHull(hull);
+        SortAndPrintHull(hull, outFileQuick);
     }
 
 

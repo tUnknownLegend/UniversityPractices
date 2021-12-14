@@ -116,7 +116,7 @@ Pair Calc_Center(const unordered_set<Pair, pair_hash>& hull) {
 	return { xc / hull.size(), yc / hull.size() };
 }
 
-void SortAndPrintHull(const unordered_set<Pair, pair_hash>& hull) {
+void SortAndPrintHull(const unordered_set<Pair, pair_hash>& hull, const string& path) {
 
 	// центр hull
 	Pair c = Calc_Center(hull);
@@ -134,6 +134,6 @@ void SortAndPrintHull(const unordered_set<Pair, pair_hash>& hull) {
 		ordHull.insert(it);
 	}
 
-	WriteToFile<set<Pair, decltype(cmp)>>(ordHull, outFileQuick);
+	WriteToFile<set<Pair, decltype(cmp)>>(ordHull, path);
 	PrintHull<set<Pair, decltype(cmp)>>(ordHull);
 }

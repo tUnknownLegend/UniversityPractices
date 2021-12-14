@@ -76,7 +76,8 @@ private:
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileNonEff);
         calcHull(arr);
-        SortAndPrintHull(hull);
+        arr.clear();
+        SortAndPrintHull(hull, outFileNonEff);
     }
 public:
 
