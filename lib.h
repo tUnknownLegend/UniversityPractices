@@ -5,6 +5,7 @@
 #include <fstream> 
 #include <vector>
 #include <algorithm>
+#include <iomanip> 
 using namespace std;
 
 // Пары координат (x; y) 
@@ -19,6 +20,8 @@ using namespace std;
 #define outFileQuick "out_Quick.txt"
 // Выходной файл Noneff
 #define outFileNonEff "out_NonEff.txt"
+// Количество значащих знаков после запятой
+#define Precision 17
 
 // hash for onorderd_set
 struct pair_hash
@@ -62,6 +65,7 @@ void WriteToFile(const T& OutputPoints, const string& path) {
 	ofstream fin;
 	fin.open(path);
 	fin << OutputPoints.size();
+	fin << setprecision(Precision);
 
 	for (auto it : OutputPoints)
 		fin << "\n" << it.first << " " << it.second;
@@ -94,6 +98,7 @@ template <typename T>
 void PrintHull(const T& hull) {
 
 	cout << "\nThe points in Convex Hull are: " << hull.size();
+	cout << setprecision(Precision);
 
 	for (auto it : hull)
 	{
