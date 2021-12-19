@@ -4,7 +4,7 @@ struct NonEffective {
 private:
 
     // Хранит результат в неотсортированном виде, т.е. точки выпуклой оболочки
-    unordered_set<Pair, pair_hash> hull;
+    vector<Pair> hull;
 
     // Функция вычисления точек оболочки
     void  calcHull(vector<Pair>& point) {
@@ -23,13 +23,17 @@ private:
             //Найдем самую правую точку max по x
             if (point[i].first > point[max].first)
                 max = i;
+
+            if ((fabs(point[i].first - point[max].first) < accuracy) && (point[i].second - point[max].second) > accuracy)
+                max = i;
         }
 
-        // лобавим первый элемент в исходную оболочку
-        hull.insert(point[max]);
+        // добавим первый элемент в исходную оболочку
+        iter_swap(point.begin(), point.begin() + max);
+        hull.push_back(point[0]);
 
         // предыдущий элемент оболочки
-        Pair prevPoint = point[max];
+        Pair prevPoint = point[0];
         for (auto it = point.begin() + 1; it < point.end(); ++it) {
 
             // Возможный следующий элемент в оболочке
@@ -62,8 +66,15 @@ private:
 
             if (SameSide) {
                 // если в hull уже есть такой элемент, то продолжаем цикл for
-                if (hull.insert(nextPoint).second == false)
+                if (find_if(hull.begin(),
+                    hull.end(),
+                    [nextPoint](const Pair& pointOfConvexHull) {
+                        return ((nextPoint.first == pointOfConvexHull.first) && (nextPoint.second == pointOfConvexHull.second));
+                    }) != hull.end()) {
                     continue;
+                }
+
+                hull.push_back(nextPoint);
                 prevPoint = nextPoint;
                 it = point.begin();
             }
@@ -72,12 +83,13 @@ private:
 
     void exe() {
 
-        std::cout << "None effective:";
+        //std::cout << "None effective:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileNonEff);
         calcHull(arr);
         arr.clear();
-        SortAndPrintHull(hull, outFileNonEff);
+        WriteToFile<vector<Pair>>(hull, outFileNonEff);
+        //SortAndPrintHull(hull, outFileNonEff);
     }
 public:
 

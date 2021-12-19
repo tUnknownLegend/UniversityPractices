@@ -5,20 +5,23 @@
 #include <fstream> 
 #include <vector>
 #include <algorithm>
+#include <iomanip> 
 using namespace std;
 
 // Пары координат (x; y) 
 #define Pair pair<double, double>
 // Точность сравнения double
-#define accuracy 10e-10
+#define accuracy 10e-8
 // Входной файл для Quick
-#define inFileQuick "problem2.txt"
+#define inFileQuick "problem.txt"
 // Входной файл для NonEff
-#define inFileNonEff "problem2.txt"
+#define inFileNonEff "problem.txt"
 // Выходной файл Quick
 #define outFileQuick "out_Quick.txt"
 // Выходной файл Noneff
 #define outFileNonEff "out_NonEff.txt"
+// Количество значащих знаков после запятой
+#define Precision 17
 
 // hash for onorderd_set
 struct pair_hash
@@ -32,7 +35,6 @@ struct pair_hash
 		return h1 ^ h2;
 	}
 };
-
 
 double LineL(const Pair& p1, const Pair& p2, const Pair& p) {
 	return ((p.second - p1.second) * (p2.first - p1.first) -
@@ -62,6 +64,7 @@ void WriteToFile(const T& OutputPoints, const string& path) {
 	ofstream fin;
 	fin.open(path);
 	fin << OutputPoints.size();
+	fin << setprecision(Precision);
 
 	for (auto it : OutputPoints)
 		fin << "\n" << it.first << " " << it.second;
@@ -75,7 +78,7 @@ void ReadFromFile(vector<Pair>& InputPoints, const string& path) {
 	ifstream fout;
 
 	fout.open(path);
-	int n = 0;
+	size_t n = 0;
 	fout >> n;
 	InputPoints.resize(n + 1);
 	// cout << n << " " << pr.size();
@@ -94,6 +97,7 @@ template <typename T>
 void PrintHull(const T& hull) {
 
 	cout << "\nThe points in Convex Hull are: " << hull.size();
+	cout << setprecision(Precision);
 
 	for (auto it : hull)
 	{
@@ -135,5 +139,5 @@ void SortAndPrintHull(const unordered_set<Pair, pair_hash>& hull, const string& 
 	}
 
 	WriteToFile<set<Pair, decltype(cmp)>>(ordHull, path);
-	PrintHull<set<Pair, decltype(cmp)>>(ordHull);
+	//PrintHull<set<Pair, decltype(cmp)>>(ordHull);
 }
