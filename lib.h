@@ -11,11 +11,11 @@ using namespace std;
 // Пары координат (x; y) 
 #define Pair pair<double, double>
 // Точность сравнения double
-#define accuracy 10e-10
+#define accuracy 10e-8
 // Входной файл для Quick
-#define inFileQuick "problem2.txt"
+#define inFileQuick "problem.txt"
 // Входной файл для NonEff
-#define inFileNonEff "problem2.txt"
+#define inFileNonEff "problem.txt"
 // Выходной файл Quick
 #define outFileQuick "out_Quick.txt"
 // Выходной файл Noneff
@@ -35,7 +35,6 @@ struct pair_hash
 		return h1 ^ h2;
 	}
 };
-
 
 double LineL(const Pair& p1, const Pair& p2, const Pair& p) {
 	return ((p.second - p1.second) * (p2.first - p1.first) -
@@ -79,7 +78,7 @@ void ReadFromFile(vector<Pair>& InputPoints, const string& path) {
 	ifstream fout;
 
 	fout.open(path);
-	int n = 0;
+	size_t n = 0;
 	fout >> n;
 	InputPoints.resize(n + 1);
 	// cout << n << " " << pr.size();
@@ -140,5 +139,5 @@ void SortAndPrintHull(const unordered_set<Pair, pair_hash>& hull, const string& 
 	}
 
 	WriteToFile<set<Pair, decltype(cmp)>>(ordHull, path);
-	PrintHull<set<Pair, decltype(cmp)>>(ordHull);
+	//PrintHull<set<Pair, decltype(cmp)>>(ordHull);
 }

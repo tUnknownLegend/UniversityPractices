@@ -80,23 +80,24 @@ private:
                 max = i;
 
             // Если таких несколько, выберем среди таких нижнюю и верхнюю соответственно
-            if ((fabs(point[i].first - point[min].first) < accuracy) && (point[i].second - point[min].second) < 0)
+            if ((fabs(point[i].first - point[min].first) < accuracy) && fabs(point[i].second - point[min].second) < accuracy)
                 min = i;
 
-            if ((fabs(point[i].first - point[max].first) < accuracy) && (point[i].second - point[max].second) > 0)
+            if ((fabs(point[i].first - point[max].first) < accuracy) && fabs(point[i].second - point[max].second) > accuracy)
                 max = i;
+
         }
 
-        // Найдем точки оболочки на одной стороне прямой a[min] a[max] с помощью рекурсии
+        // Найдем точки оболочки на одной стороне прямой point[min] point[max] с помощью рекурсии
         QuickHull(point, point[min], point[max], 1);
 
-        // Найдем точки оболочки на противоположной стороне прямой a[min] a[max] с помощью рекурсии
+        // Найдем точки оболочки на противоположной стороне прямой point[min] point[max] с помощью рекурсии
         QuickHull(point, point[min], point[max], -1);
     }
 
     void exe() {
 
-        std::cout << "Quick:";
+        //std::cout << "Quick:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileQuick);
         CalcHull(arr);

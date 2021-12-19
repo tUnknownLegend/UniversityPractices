@@ -5,7 +5,7 @@ using namespace std;
 int main() {
 
     Quick()();
-    cout << "\n-----------------------------------------\n";
+    //cout << "\n-----------------------------------------\n";
     NonEffective()();
     return 0;
 }
