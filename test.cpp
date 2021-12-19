@@ -1,4 +1,6 @@
 ﻿#include "Header.h"
+#include <chrono>
+
 
 struct Quick {
 private:
@@ -78,30 +80,31 @@ private:
             if (point[i].first > point[max].first)
 
                 max = i;
-
+            
             // Если таких несколько, выберем среди таких нижнюю и верхнюю соответственно
-            if ((fabs(point[i].first - point[min].first) < accuracy) && (point[i].second - point[min].second) < 0)
+            if ((fabs(point[i].first - point[min].first) < accuracy) && fabs(point[i].second - point[min].second) < accuracy)
                 min = i;
 
-            if ((fabs(point[i].first - point[max].first) < accuracy) && (point[i].second - point[max].second) > 0)
+            if ((fabs(point[i].first - point[max].first) < accuracy) && fabs(point[i].second - point[max].second) > accuracy)
                 max = i;
+              
         }
 
-        // Найдем точки оболочки на одной стороне прямой a[min] a[max] с помощью рекурсии
+        // Найдем точки оболочки на одной стороне прямой point[min] point[max] с помощью рекурсии
         QuickHull(point, point[min], point[max], 1);
 
-        // Найдем точки оболочки на противоположной стороне прямой a[min] a[max] с помощью рекурсии
+        // Найдем точки оболочки на противоположной стороне прямой point[min] point[max] с помощью рекурсии
         QuickHull(point, point[min], point[max], -1);
     }
 
     void exe() {
 
-        std::cout << "Quick:";
+        //std::cout << "Quick:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileQuick);
         CalcHull(arr);
         arr.clear();
-        SortAndPrintHull(hull);
+        SortAndPrintHull(hull, outFileQuick);
     }
 
 
@@ -112,9 +115,6 @@ public:
     }
 
 };
-
-
-
 
 struct NonEffective {
 private:
@@ -133,15 +133,18 @@ private:
         }
 
         int min = 0, max = 0;
-
+        
         for (int i = 1; i < point.size(); ++i) {
 
             //Найдем самую правую точку max по x
             if (point[i].first > point[max].first)
                 max = i;
-        }
 
-        // лобавим первый элемент в исходную оболочку
+            if ((fabs(point[i].first - point[max].first) < accuracy) && (point[i].second - point[max].second) > accuracy)
+                max = i;
+        }
+     
+        // добавим первый элемент в исходную оболочку
         hull.insert(point[max]);
 
         // предыдущий элемент оболочки
@@ -179,7 +182,11 @@ private:
             if (SameSide) {
                 // если в hull уже есть такой элемент, то продолжаем цикл for
                 if (hull.insert(nextPoint).second == false)
+                {
+                    cout << "\n" << nextPoint.first << " " << nextPoint.second;
                     continue;
+                }
+                    
                 prevPoint = nextPoint;
                 it = point.begin();
             }
@@ -188,11 +195,12 @@ private:
 
     void exe() {
 
-        std::cout << "None effective:";
+        //std::cout << "None effective:";
         vector<Pair> arr = { };
         ReadFromFile(arr, inFileNonEff);
         calcHull(arr);
-        SortAndPrintHull(hull);
+        arr.clear();
+        SortAndPrintHull(hull, outFileNonEff);
     }
 public:
 
@@ -202,10 +210,36 @@ public:
 
 };
 
+
 int main() {
 
+    // Создадим ofstream для записи в файл
+    ofstream fin;
+    fin.open("TimeRes.txt");
+
+    auto start = chrono::high_resolution_clock::now();
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
     Quick()();
-    cout << "\n-----------------------------------------\n";
+    stop = chrono::high_resolution_clock::now();
+    duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    //cout << "Quick time: ";
+    //cout << duration.count();
+    //cout << "\n-----------------------------------------\n";
+
+    fin << duration.count() << "\n";
+
+
+    start = chrono::high_resolution_clock::now();
     NonEffective()();
+    stop = chrono::high_resolution_clock::now();
+    duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    //cout << "NonEffective time: ";
+    //cout << duration.count();
+   // cout << "\n---------------------------------------- - \n";
+    fin << duration.count() << "\n";
+
+    fin.close();
+
     return 0;
 }
