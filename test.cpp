@@ -144,12 +144,9 @@ private:
                 max = i;
         }
      
-
+        // добавим первый элемент в исходную оболочку
         iter_swap(point.begin(), point.begin() + max);
         hull.push_back(point[0]);
-
-        // добавим первый элемент в исходную оболочку
-      //  hull.insert(point[max]);
 
         // предыдущий элемент оболочки
         Pair prevPoint = point[0];

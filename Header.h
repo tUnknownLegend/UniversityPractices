@@ -1,5 +1,4 @@
-﻿#pragma once
-#include <iostream> 
+﻿#include <iostream> 
 #include <unordered_set>
 #include <set>
 #include <fstream> 
