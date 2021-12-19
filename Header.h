@@ -13,9 +13,9 @@ using namespace std;
 // Точность сравнения double
 #define accuracy 10e-8
 // Входной файл для Quick
-#define inFileQuick "problem1.txt"
+#define inFileQuick "problem2.txt"
 // Входной файл для NonEff
-#define inFileNonEff "problem1.txt"
+#define inFileNonEff "problem2.txt"
 // Выходной файл Quick
 #define outFileQuick "out_Quick.txt"
 // Выходной файл Noneff
