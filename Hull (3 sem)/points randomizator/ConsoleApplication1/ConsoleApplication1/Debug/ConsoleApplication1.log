@@ -1,6 +1,0 @@
-﻿  Source3.cpp
-C:\Users\pinev\Desktop\ConsoleApplication1\ConsoleApplication1\Source2.cpp(37,22): warning C4018: '<': signed/unsigned mismatch
-  Source4.cpp
-C:\Users\pinev\Desktop\ConsoleApplication1\ConsoleApplication1\Source2.cpp(37,22): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  ConsoleApplication1.vcxproj -> C:\Users\pinev\Desktop\ConsoleApplication1\Debug\ConsoleApplication1.exe
