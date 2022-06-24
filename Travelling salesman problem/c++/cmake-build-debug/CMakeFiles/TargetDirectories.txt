@@ -1,4 +1,4 @@
-/home/aint/practice/c++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/aint/practice/c++/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/aint/practice/c++/cmake-build-debug/CMakeFiles/1_tsp.dir
-/home/aint/practice/c++/cmake-build-debug/CMakeFiles/1_rec.dir
+C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/cmake-build-debug/CMakeFiles/1_rec.dir
+C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/cmake-build-debug/CMakeFiles/1_tsp.dir
+C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
