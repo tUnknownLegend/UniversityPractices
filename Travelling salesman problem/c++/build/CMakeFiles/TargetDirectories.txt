@@ -1,0 +1,4 @@
+/home/aint/practice/c++/build/CMakeFiles/1_rec.dir
+/home/aint/practice/c++/build/CMakeFiles/1_tsp.dir
+/home/aint/practice/c++/build/CMakeFiles/edit_cache.dir
+/home/aint/practice/c++/build/CMakeFiles/rebuild_cache.dir
