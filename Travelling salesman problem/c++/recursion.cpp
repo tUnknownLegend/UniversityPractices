@@ -20,7 +20,7 @@ void GetRoads(int verticesIndex, const int &amtOfVertices, vector<bool> &usedPat
         return;
     }
 
-    for (int i = 1; i <= amtOfVertices - 1; i++) {
+    for (int i = 1; i <= amtOfVertices - 1; ++i) {
         if (usedPath[i]) {
             continue;
         }
@@ -49,9 +49,9 @@ int main() {
     {
         vector<double> str;
         double node = 0.0;
-        for (int i = 0; i < amtOfVertices; i++) {
+        for (int i = 0; i < amtOfVertices; ++i) {
 
-            for (int j = 0; j < amtOfVertices; j++) {
+            for (int j = 0; j < amtOfVertices; ++j) {
                 in_file >> node;
                 str.push_back(node);
             }
@@ -74,7 +74,7 @@ int main() {
 
     for (auto path: allPathes) {
         double weight = matrix[0][path[0]];
-        for (int j = 0; j < path.size() - 1; j++) {
+        for (int j = 0; j < path.size() - 1; ++j) {
             weight += matrix[path[j]][path[j + 1]];
         }
         weight += matrix[path.back()][0];
