@@ -3,7 +3,7 @@ project(1)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -O0")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}" )
 
 file(GLOB SOURCES *.cpp *.h)
 #find_package(GTest REQUIRED)

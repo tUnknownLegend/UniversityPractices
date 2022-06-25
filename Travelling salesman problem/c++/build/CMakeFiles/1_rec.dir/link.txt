@@ -1,1 +1,0 @@
-/usr/share/clang/scan-build-10/libexec/c++-analyzer -fprofile-arcs -ftest-coverage -O0  -coverage -lgcov CMakeFiles/1_rec.dir/recursion.cpp.o -o 1_rec 

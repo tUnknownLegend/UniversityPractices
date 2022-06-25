@@ -31,11 +31,11 @@ void GetRoads(int verticesIndex, const int &amtOfVertices, vector<bool> &usedPat
     }
 }
 
-int main() {
+void calcRecursion(){
     ifstream in_file(inFileNonEff);
     if (!in_file.is_open()) {
         cerr << "error // input.txt open\n";
-        return 0;
+        return;
     }
 
     // matrix
@@ -90,20 +90,24 @@ int main() {
 
     if (!outFile) {
         cerr << "error // outFileNonEff open\n";
-        return 0;
+        return;
     }
 
     for (int &i: minPath)
         outFile << ++i << " ";
 
     cout << "Weight Value: " << minWeight << "\n";
-    cout << "minimal path: ";
-    for (int i: minPath)
-        cout << i << " ";
+//    cout << "minimal path: ";
+//    for (int i: minPath)
+//        cout << i << " ";
 
     unsigned int stopTime = clock();
     unsigned int searchTime = stopTime - startingTime;   //  exec time
     cout << "\nSearch time: " << ((float) searchTime) / CLOCKS_PER_SEC << "\n";
+}
+
+int main() {
+    calcRecursion();
 
     return 0;
 }
