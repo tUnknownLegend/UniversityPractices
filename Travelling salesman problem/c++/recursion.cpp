@@ -86,22 +86,24 @@ void calcRecursion(){
     minPath.insert(minPath.begin(), 0);
     minPath.push_back(0);
 
+    unsigned int stopTime = clock();
+    /*
+     * debug info
     ofstream outFile(outFileNonEff);
-
     if (!outFile) {
         cerr << "error // outFileNonEff open\n";
         return;
     }
-
     for (int &i: minPath)
         outFile << ++i << " ";
+    */
 
     cout << "Weight Value: " << minWeight << "\n";
 //    cout << "minimal path: ";
 //    for (int i: minPath)
 //        cout << i << " ";
 
-    unsigned int stopTime = clock();
+
     unsigned int searchTime = stopTime - startingTime;   //  exec time
     cout << "\nSearch time: " << ((float) searchTime) / CLOCKS_PER_SEC << "\n";
 }

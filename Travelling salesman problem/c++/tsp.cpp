@@ -22,7 +22,6 @@ public:
         if (!in_file)
             cerr << "error // input.txt open" << endl;
 
-        numOfCities = 0;
         in_file >> numOfCities;
 
         //cout << "Start reading\n";
@@ -49,8 +48,8 @@ public:
 
     vector<int> cities{};
     vector<int> finalOrder{};
-// arr is the array that stores the City order
-    vector<int> arr{};//(40);
+    // arr is the array that stores the City order
+    vector<int> arr{};
     int numOfCities = 0;
 
     double getDistance(int city1, int city2) {
@@ -59,50 +58,21 @@ public:
 
 //This function returns the tour length of the current order of cities
     double getTourLength() {
-        auto it = cities.begin();
+        double tourLength = getDistance(0, cities.front());
+        for (auto it = cities.begin(); it + 1 != cities.end(); it++)
+            tourLength += getDistance(*(it), *(it + 1));
 
-        it = cities.begin();
-        int pcity1 = *it, ncity;
-
-        double tourLength = getDistance(0, pcity1);
-        for (it = cities.begin() + 1; it != cities.end(); it++) {
-            ncity = *it;
-            tourLength += getDistance(pcity1, ncity);
-
-            pcity1 = ncity;
-        }
-
-        //adding the getDistance back to the source path
-        tourLength += getDistance(pcity1, 0);
+        tourLength += getDistance(cities.back(), 0);
         return tourLength;
     }
 
 //puts the nearestNeighbourTour in the vector cities
     double getNearestNeighbourTour() {
-        //vector<int>::iterator it;
-        int numCities = numOfCities;
-
-        for (int i = 0; i < numCities; i++)
-            arr[i] = i;
-
-        double best;
-        int bestIndex;
-        for (int i = 1; i < numCities; i++) {
-            best = DBL_MAX;
-            for (int j = i; j < numCities; j++) {
-
-                if (getDistance(i - 1, j) < best) {
-                    best = getDistance(i, j);
-                    bestIndex = j;
-                }
-            }
-            swap(i, bestIndex);
-        }
         cities.clear();
-
-        for (int i = 1; i < numCities; i++) {
-            cities.push_back(arr[i]);
-            finalOrder.push_back(arr[i]);
+        finalOrder.clear();
+        for (int i = 1; i < numOfCities; i++) {
+            cities.push_back(i);
+            finalOrder.push_back(i);
         }
 
         double nearestNeighbourTourLength = getTourLength();
@@ -110,13 +80,7 @@ public:
     }
 
     void swapVec(int i, int j) {
-//    auto it = cities.begin();
-//    int temp = *(it + i);
-//    *(it + i) = *(it + j);
-//    *(it + j) = temp;
-
         swap(*(cities.begin() + i), *(cities.begin() + j));
-
     }
 
     //This function finds the probability of how bad the new solution is
@@ -139,8 +103,6 @@ public:
         double newTourLength = 0;
         double difference = 0;
 
-        ofstream fs(outFileQuick);
-
         for (int cycleIt = 0; cycleIt < CYCLE_RATE; cycleIt++) {
             temperature = DBL_MAX; //Initial Temperature
 
@@ -154,7 +116,7 @@ public:
 
                 }
                 swapVec(position1, position2);
-                //it2 = cities.begin();
+
                 newTourLength = getTourLength();
 
                 if (minimalWeight > newTourLength)
@@ -169,24 +131,28 @@ public:
 
                     copy(cities.begin(), cities.end(), back_inserter(finalOrder));
 
-//                for (it = cities.begin(); it != cities.end(); it++) {
-//                    finalOrder.push_back(*it);
-//                }
                     bestTourLength = newTourLength;
                 }
                 temperature = temperature * coolingRate;
             }
+            
+            /*
+             * debug info
+            ofstream outFile(outFileQuick);
+            if (!outFile) {
+                cerr << "error // outFileNonEff open\n";
+                return;
+            }
 
             for (int &i: finalOrder) {
-                fs << i << " ";
+                outFile << i << " ";
             }
-            fs << "       " << bestTourLength << "        " << minimalWeight;
-            fs << endl;
+            outFile << "       " << bestTourLength << "        " << minimalWeight;
+            outFile << endl;
             shuffle(cities.begin(), cities.end(), std::mt19937(std::random_device()()));
+            */
         }
 
-        //cout << "best solution is " << bestTourLength << "\n";
-//        cout << "Weight Value: " << minimalWeight << "\n";
     }
 
     void printWeight() const {
@@ -211,7 +177,6 @@ void calcTSP() {
 }
 
 int main() {
-
     calcTSP();
 
     return 0;
