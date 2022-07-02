@@ -1,11 +1,10 @@
 #include <random>
-
 #include "bits/stdc++.h"
 #include "shared.h"
 
 using namespace std;
 
-//This function generates a random number between
+//This function generates a random number in [i, j]
 double getRandomNumber(double i, double j) {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     default_random_engine generator(seed);
@@ -135,9 +134,9 @@ public:
                 }
                 temperature = temperature * coolingRate;
             }
-            
-            /*
-             * debug info
+
+
+             // debug info
             ofstream outFile(outFileQuick);
             if (!outFile) {
                 cerr << "error // outFileNonEff open\n";
@@ -150,7 +149,7 @@ public:
             outFile << "       " << bestTourLength << "        " << minimalWeight;
             outFile << endl;
             shuffle(cities.begin(), cities.end(), std::mt19937(std::random_device()()));
-            */
+
         }
 
     }
@@ -163,9 +162,8 @@ public:
 
 void calcTSP() {
     //start time
-    unsigned int start_time = clock();
-
     TSP cTSP(inFileQuick);
+    unsigned int start_time = clock();
     cTSP.calc();
 
     unsigned int end_time = clock();

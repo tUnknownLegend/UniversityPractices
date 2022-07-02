@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(1)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -O0")
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} " -O2")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}" )
 
 file(GLOB SOURCES *.cpp *.h)

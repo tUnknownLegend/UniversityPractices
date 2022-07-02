@@ -2,9 +2,9 @@
 #define INC_1_SHARED_H
 
 // Входной файл для Quick
-#define inFileQuick "../input.txt"
+#define inFileQuick "../test11.txt"
 // Входной файл для NonEff
-#define inFileNonEff "../input.txt"
+#define inFileNonEff "../test11.txt"
 // Выходной файл Quick
 #define outFileQuick "../out_Quick.txt"
 // Выходной файл Noneff

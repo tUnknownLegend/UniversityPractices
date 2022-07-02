@@ -31,7 +31,7 @@ void GetRoads(int verticesIndex, const int &amtOfVertices, vector<bool> &usedPat
     }
 }
 
-void calcRecursion(){
+void calcRecursion() {
     ifstream in_file(inFileNonEff);
     if (!in_file.is_open()) {
         cerr << "error // input.txt open\n";
@@ -65,6 +65,7 @@ void calcRecursion(){
     vector<bool> usedPath = vector<bool>(amtOfVertices, false);
     vector<vector<int>> allPathes = {};
 
+    // starting stopwatch
     unsigned int startingTime = clock();
 
     GetRoads(0, amtOfVertices, usedPath, pathes, allPathes);
