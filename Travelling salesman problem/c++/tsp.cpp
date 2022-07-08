@@ -171,7 +171,7 @@ void calcTSP() {
     cTSP.printWeight();
 
     unsigned int search_time = end_time - start_time; //  exec time
-    cout << "Search time: " << ((float) search_time) / CLOCKS_PER_SEC << endl;
+    cout << "Search time: " << ((double) search_time) / CLOCKS_PER_SEC << endl;
 }
 
 int main() {

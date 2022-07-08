@@ -1,17 +1,17 @@
 #ifndef INC_1_SHARED_H
 #define INC_1_SHARED_H
 
-// Входной файл для Quick
+// input for Quick
 #define inFileQuick "../test11.txt"
-// Входной файл для NonEff
+// input for для NonEff
 #define inFileNonEff "../test11.txt"
-// Выходной файл Quick
+// output for Quick
 #define outFileQuick "../out_Quick.txt"
-// Выходной файл Noneff
+// output for Noneff
 #define outFileNonEff "../out_NonEff.txt"
-// COMPARE_RATE
+// compare for double
 #define COMPARE_RATE 10e-5
-//CYCLE_RATE
+// depth of for
 #define CYCLE_RATE 100
 
 #endif //INC_1_SHARED_H

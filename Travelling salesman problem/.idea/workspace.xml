@@ -15,34 +15,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e57315ce-4ec9-4671-8ec1-fc18bf6e97c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/c++/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-afccfa8beabb3a66c28b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/.cmake/api/v1/reply/index-2022-06-25T05-39-36-0646.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/.cmake/api/v1/reply/target-1_rec-Debug-513becf7b434169ccdd6.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/.cmake/api/v1/reply/target-1_tsp-Debug-4d05b03dc7fffffb24bf.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/1_rec.exe" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/1_rec.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/1_tsp.exe" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/1_tsp.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/recursion.cpp.gcda" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/recursion.cpp.gcda" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/recursion.cpp.gcno" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/recursion.cpp.gcno" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/recursion.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_rec.dir/recursion.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/tsp.cpp.gcda" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/tsp.cpp.gcda" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/tsp.cpp.gcno" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/tsp.cpp.gcno" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/tsp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/CMakeFiles/1_tsp.dir/tsp.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/c++/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/out_Quick.txt" beforeDir="false" afterPath="$PROJECT_DIR$/c++/out_Quick.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/recursion.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/c++/recursion.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/shared.h" beforeDir="false" afterPath="$PROJECT_DIR$/c++/shared.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c++/tsp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/c++/tsp.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="e57315ce-4ec9-4671-8ec1-fc18bf6e97c6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,18 +50,13 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/CMakeLists.txt&quot;
   }
 }</component>
-  <component name="RunManager" selected="CMake Application.1_tsp">
+  <component name="RunManager" selected="CMake Application.1_rec">
     <configuration name="1_rec" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="1_rec" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="1" RUN_TARGET_NAME="1_rec">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="1_tsp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="1" TARGET_NAME="1_tsp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="1" RUN_TARGET_NAME="1_tsp">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -110,6 +78,7 @@
       <workItem from="1656134696922" duration="7530000" />
       <workItem from="1656144760721" duration="1317000" />
       <workItem from="1656149873383" duration="3879000" />
+      <workItem from="1657290065555" duration="6072000" />
     </task>
     <servers />
   </component>
