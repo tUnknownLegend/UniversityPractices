@@ -51,6 +51,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/1_rec.dir/DependInfo.cmake"
-  "CMakeFiles/1_tsp.dir/DependInfo.cmake"
+  "CMakeFiles/TSP_rec.dir/DependInfo.cmake"
+  "CMakeFiles/TSP_simAnnealing.dir/DependInfo.cmake"
   )

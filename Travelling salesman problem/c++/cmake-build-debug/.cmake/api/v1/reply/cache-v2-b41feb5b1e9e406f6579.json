@@ -975,7 +975,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "1"
+			"value" : "TSP"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1352,6 +1352,42 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
+		},
+		{
+			"name" : "TSP_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/cmake-build-debug"
+		},
+		{
+			"name" : "TSP_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "TSP_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++"
 		}
 	],
 	"kind" : "cache",

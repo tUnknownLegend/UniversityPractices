@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "1_rec.pdb"
   "CMakeFiles/1_rec.dir/recursion.cpp.obj"
   "CMakeFiles/1_rec.dir/recursion.cpp.obj.d"
+  "CMakeFiles/1_rec.dir/shared.cpp.obj"
+  "CMakeFiles/1_rec.dir/shared.cpp.obj.d"
   "lib1_rec.dll.a"
 )
 

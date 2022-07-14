@@ -28,7 +28,7 @@
 					[
 						0
 					],
-					"name" : "1",
+					"name" : "TSP",
 					"targetIndexes" : 
 					[
 						0,
@@ -40,16 +40,16 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "1_rec::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-1_rec-Debug-f001ad41cdc99236fd2b.json",
-					"name" : "1_rec",
+					"id" : "TSP_rec::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TSP_rec-Debug-c97058851af609f2036d.json",
+					"name" : "TSP_rec",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "1_tsp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-1_tsp-Debug-a5ec8ca8470c630ad262.json",
-					"name" : "1_tsp",
+					"id" : "TSP_simAnnealing::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TSP_simAnnealing-Debug-12b17c787d5ab7391a31.json",
+					"name" : "TSP_simAnnealing",
 					"projectIndex" : 0
 				}
 			]

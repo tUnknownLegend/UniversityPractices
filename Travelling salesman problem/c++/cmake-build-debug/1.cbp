@@ -129,6 +129,10 @@
 		<Unit filename="C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/recursion.cpp">
 			<Option target="1_rec"/>
 		</Unit>
+		<Unit filename="C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/shared.cpp">
+			<Option target="1_rec"/>
+			<Option target="1_tsp"/>
+		</Unit>
 		<Unit filename="C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/shared.h">
 			<Option target="1_rec"/>
 			<Option target="1_tsp"/>

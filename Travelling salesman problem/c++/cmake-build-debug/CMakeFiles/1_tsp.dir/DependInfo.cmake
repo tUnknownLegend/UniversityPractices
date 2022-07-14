@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/shared.cpp" "CMakeFiles/1_tsp.dir/shared.cpp.obj" "gcc" "CMakeFiles/1_tsp.dir/shared.cpp.obj.d"
   "C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/tsp.cpp" "CMakeFiles/1_tsp.dir/tsp.cpp.obj" "gcc" "CMakeFiles/1_tsp.dir/tsp.cpp.obj.d"
   )
 

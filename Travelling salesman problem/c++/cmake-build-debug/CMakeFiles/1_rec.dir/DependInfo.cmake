@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/recursion.cpp" "CMakeFiles/1_rec.dir/recursion.cpp.obj" "gcc" "CMakeFiles/1_rec.dir/recursion.cpp.obj.d"
+  "C:/Users/pinev/Documents/GitHub/UniversityPractices/Travelling salesman problem/c++/shared.cpp" "CMakeFiles/1_rec.dir/shared.cpp.obj" "gcc" "CMakeFiles/1_rec.dir/shared.cpp.obj.d"
   )
 
 # Targets to which this target links.

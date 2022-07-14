@@ -62,8 +62,8 @@ CMAKE_BINARY_DIR = "C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelli
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/1_rec.dir/all
-all: CMakeFiles/1_tsp.dir/all
+all: CMakeFiles/TSP_rec.dir/all
+all: CMakeFiles/TSP_simAnnealing.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,61 +71,61 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/1_rec.dir/clean
-clean: CMakeFiles/1_tsp.dir/clean
+clean: CMakeFiles/TSP_rec.dir/clean
+clean: CMakeFiles/TSP_simAnnealing.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/1_rec.dir
+# Target rules for target CMakeFiles/TSP_rec.dir
 
 # All Build rule for target.
-CMakeFiles/1_rec.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\1_rec.dir\build.make CMakeFiles/1_rec.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\1_rec.dir\build.make CMakeFiles/1_rec.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target 1_rec"
-.PHONY : CMakeFiles/1_rec.dir/all
+CMakeFiles/TSP_rec.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TSP_rec.dir\build.make CMakeFiles/TSP_rec.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TSP_rec.dir\build.make CMakeFiles/TSP_rec.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" --progress-num=1,2,3 "Built target TSP_rec"
+.PHONY : CMakeFiles/TSP_rec.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/1_rec.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/1_rec.dir/all
+CMakeFiles/TSP_rec.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/TSP_rec.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/1_rec.dir/rule
+.PHONY : CMakeFiles/TSP_rec.dir/rule
 
 # Convenience name for target.
-1_rec: CMakeFiles/1_rec.dir/rule
-.PHONY : 1_rec
+TSP_rec: CMakeFiles/TSP_rec.dir/rule
+.PHONY : TSP_rec
 
 # clean rule for target.
-CMakeFiles/1_rec.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\1_rec.dir\build.make CMakeFiles/1_rec.dir/clean
-.PHONY : CMakeFiles/1_rec.dir/clean
+CMakeFiles/TSP_rec.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TSP_rec.dir\build.make CMakeFiles/TSP_rec.dir/clean
+.PHONY : CMakeFiles/TSP_rec.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/1_tsp.dir
+# Target rules for target CMakeFiles/TSP_simAnnealing.dir
 
 # All Build rule for target.
-CMakeFiles/1_tsp.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\1_tsp.dir\build.make CMakeFiles/1_tsp.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\1_tsp.dir\build.make CMakeFiles/1_tsp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" --progress-num=3,4 "Built target 1_tsp"
-.PHONY : CMakeFiles/1_tsp.dir/all
+CMakeFiles/TSP_simAnnealing.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TSP_simAnnealing.dir\build.make CMakeFiles/TSP_simAnnealing.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TSP_simAnnealing.dir\build.make CMakeFiles/TSP_simAnnealing.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" --progress-num=4,5,6 "Built target TSP_simAnnealing"
+.PHONY : CMakeFiles/TSP_simAnnealing.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/1_tsp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/1_tsp.dir/all
+CMakeFiles/TSP_simAnnealing.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/TSP_simAnnealing.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\pinev\Documents\GitHub\UniversityPractices\Travelling salesman problem\c++\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/1_tsp.dir/rule
+.PHONY : CMakeFiles/TSP_simAnnealing.dir/rule
 
 # Convenience name for target.
-1_tsp: CMakeFiles/1_tsp.dir/rule
-.PHONY : 1_tsp
+TSP_simAnnealing: CMakeFiles/TSP_simAnnealing.dir/rule
+.PHONY : TSP_simAnnealing
 
 # clean rule for target.
-CMakeFiles/1_tsp.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\1_tsp.dir\build.make CMakeFiles/1_tsp.dir/clean
-.PHONY : CMakeFiles/1_tsp.dir/clean
+CMakeFiles/TSP_simAnnealing.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TSP_simAnnealing.dir\build.make CMakeFiles/TSP_simAnnealing.dir/clean
+.PHONY : CMakeFiles/TSP_simAnnealing.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
